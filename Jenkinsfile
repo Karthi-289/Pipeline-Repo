@@ -33,7 +33,7 @@ pipeline{
 		
 		stage('Nexus Upload'){
 			steps{
-				sh 'mvn -s setting.xml clean deploy'
+				sh 'mvn -s settings.xml clean deploy'
 			}
 		}
 		
