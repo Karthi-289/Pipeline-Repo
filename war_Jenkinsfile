@@ -31,7 +31,7 @@ pipeline{
 			}
 		}
 		
-		stage('Nexus Upload'){
+		stage('Nexus_Upload'){
 			steps{
 				sh 'mvn -s settings.xml clean deploy'
 			}
