@@ -37,6 +37,11 @@ pipeline{
             }
         }
 		
+		stage('Diployment'){
+			steps{
+				sh 'ansible-playbook -i inventory diploy_playbook.yml -e "build_number=${BUILD_NUMER}"'
+			}
+		}
 	}
 	
 }
