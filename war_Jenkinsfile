@@ -1,5 +1,7 @@
 pipeline{
-	agent any
+	agent{
+		label 'Master'	
+	}
 	
 	tools {
 		maven 'maven_3.9.0'
@@ -38,6 +40,9 @@ pipeline{
         }
 		
 		stage('Diployment'){
+			agent{
+				label 'Ansible'
+			}
 			steps{
 				sh 'ansible-playbook -i inventory diploy_playbook.yml -e "build_number=${BUILD_NUMER}"'
 			}
